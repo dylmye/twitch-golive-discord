@@ -1,6 +1,5 @@
 # Twitch-Discord Live Notifications
 ## A rudimentary AWS lambda function for notifying your discord server when you're live on Twitch
----
 
 This lambda function acts as a webhook reciever for Twitch's EventSub API. Full instructions for usage will be in a blog post soon.
 
