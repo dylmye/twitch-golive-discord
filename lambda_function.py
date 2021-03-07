@@ -1,6 +1,6 @@
 import json
 import requests
-from env import DISCORD_WEBHOOK_URL, TWITCH_USERNAME
+from env import DISCORD_WEBHOOK_URL, DISCORD_ROLE_ID, TWITCH_USERNAME
 
 # take a twitch event and publish a discord message
 def lambda_handler(event, context):
@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         return return_obj
     
     data = {
-        "content": "<@&816395291846246431> " + TWITCH_USERNAME + " is now live on Twitch! Watch at https://twitch.tv/" + TWITCH_USERNAME,
+        "content": "<@&" + DISCORD_ROLE_ID + "> " + TWITCH_USERNAME + " is now live on Twitch! Watch at https://twitch.tv/" + TWITCH_USERNAME,
         "embeds": [
             {
                 "author": {
