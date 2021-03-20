@@ -1,5 +1,6 @@
 import json
 import requests
+from datetime import datetime
 from env import DISCORD_WEBHOOK_URL, DISCORD_ROLE_ID, TWITCH_USERNAME
 
 # take a twitch event and publish a discord message
@@ -33,7 +34,7 @@ def lambda_handler(event, context):
                     "icon_url": "https://avatar.glue-bot.xyz/twitch/" + TWITCH_USERNAME
                 },
                 "image": {
-                    "url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_" + TWITCH_USERNAME + "-720x480.jpg?width=400&height=267"
+                    "url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_" + TWITCH_USERNAME + "-720x480.jpg?cache=" + datetime.utcnow().timestamp()
                 },
                 "footer": {
                     "text": "https://twitch.tv/" + TWITCH_USERNAME,
