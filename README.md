@@ -21,7 +21,7 @@ This function is intended to run on AWS Lambda. See the blog post for more infor
 Make sure to make a copy of env.example.py, rename it to env.py and fill out the required values:
 
 * `DISCORD_WEBHOOK_URL`: the URL Discord provides for its channel webhook
-* `DISCORD_ROLE_ID`: the ID of the role to @ in your message
+* `DISCORD_ROLE_ID`: the ID of the role to @ in your message. Set this to 'everyone' if you want to @ everyone
 * `TWITCH_USERNAME`: the twitch username to promote
 
 ## Credits
