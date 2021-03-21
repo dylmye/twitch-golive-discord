@@ -23,6 +23,9 @@ def lambda_handler(event, context):
     if ("subscription" not in data or data["subscription"]["status"] != "enabled" or data["subscription"]["type"] != "stream.online"):
         return_obj["body"] = json.dumps({ "executed": False, "error": "no subscription in request, or subscription type is incorrect.", "debug_event_obj": data })
         return return_obj
+
+    mention_str = ('@everyone' if DISCORD_ROLE_ID == 'everyone' else '<@&' + DISCORD_ROLE_ID + '>')
+    cache_buster = str(datetime.utcnow().isoformat(timespec='minutes')).replace('-', '').replace(':', '')
     
     data = {
         "content": "<@&" + DISCORD_ROLE_ID + "> " + TWITCH_USERNAME + " is now live on Twitch! Watch at https://twitch.tv/" + TWITCH_USERNAME,
@@ -34,7 +37,7 @@ def lambda_handler(event, context):
                     "icon_url": "https://avatar.glue-bot.xyz/twitch/" + TWITCH_USERNAME
                 },
                 "image": {
-                    "url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_" + TWITCH_USERNAME + "-720x480.jpg?cache=" + datetime.utcnow().timestamp()
+                    "url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_" + TWITCH_USERNAME + "-720x480.jpg?cache=" + cache_buster
                 },
                 "footer": {
                     "text": "https://twitch.tv/" + TWITCH_USERNAME,
