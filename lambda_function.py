@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         return_obj["body"] = json.dumps({ "executed": False, "error": "no subscription in request, or subscription type is incorrect.", "debug_event_obj": data })
         return return_obj
 
-    mention_str = ('@everyone' if DISCORD_ROLE_ID == 'everyone' else '<@&' + DISCORD_ROLE_ID + '>')
+    mention_str = ('@everyone, ' if DISCORD_ROLE_ID == 'everyone' else '<@&' + DISCORD_ROLE_ID + '>, ')
     cache_buster = str(datetime.utcnow().isoformat(timespec='minutes')).replace('-', '').replace(':', '')
     
     data = {
