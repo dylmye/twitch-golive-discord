@@ -1,6 +1,8 @@
 # Twitch-Discord Live Notifications
 ## A rudimentary AWS lambda function for notifying your discord server when you're live on Twitch
 
+[![DeepSource](https://deepsource.io/gh/dylmye/twitch-golive-discord.svg/?label=active+issues)](https://deepsource.io/gh/dylmye/twitch-golive-discord/?ref=repository-badge) [![CodeQL](https://github.com/dylmye/twitch-golive-discord/actions/workflows/codeql-analysis.yml/badge.svg?branch=main)](https://github.com/dylmye/twitch-golive-discord/actions/workflows/codeql-analysis.yml)
+
 This lambda function acts as a webhook reciever for Twitch's EventSub API. Full instructions for usage will be in a blog post soon.
 
 ## Requirements
